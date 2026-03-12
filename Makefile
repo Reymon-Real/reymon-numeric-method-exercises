@@ -11,6 +11,9 @@ all: $(executable)
 clean:
 	rm -f $(executable)
 
+distclean:
+	rm -rf build
+
 $(BIN_DIR)/%: $(SRC_DIR)/%.cbl
 	@mkdir -p $(dir $@)
 	cobc -x -o $@ $< -L$(TOOLBIN) -Q -Wl,-rpath=$(TOOLBIN)
